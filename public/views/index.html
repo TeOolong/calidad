@@ -7,28 +7,41 @@
 </head>
 <body>
   <main>
-      <div class="main_container">
-          <div class="information_container">
-              <div class="login_info">
+      <div class="main__container">
+          <div class="information__container">
+              <div class="information__container-login">
                   <h3>¿Ya tienes una cuenta?</h3>
                   <p>Inicia sesión para entrar</p>
-                  <button id="login">Iniciar Sesión</button>
+                  <button id="switch_login">Iniciar Sesión</button>
               </div>
-              <div class="register_info">
+              <div class="information__container-register">
                   <h3>¿Aún no tienes una cuenta?</h3>
                   <p>Regístrate para que puedas iniciar sesión</p>
-                  <button id="register">Regístrarse</button>
+                  <button id="switch_register">Regístrarse</button>
               </div>
           </div>
-          <div class="forms_container">
-            <form action="" class="login_form">
-              
+
+
+          <div class="forms__container">
+            <form action="" class="forms__container-login">
+              <h2>Iniciar sesión</h2>
+              <input type="text" placeholder="DNI">
+              <input type="password" placeholder="Contraseña">
+              <button>Ingresar</button>
+            </form>
+
+            <form action="" class="forms__container-register">
+              <h2>Registrarse</h2>
+              <input type="text" placeholder="Nombres y Apellidos">
+              <input type="text" placeholder="DNI">
+              <input type="password" placeholder="Contraseña">
+              <button>Registrarse</button>
             </form>
           </div>
       </div>
 
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 </html>
