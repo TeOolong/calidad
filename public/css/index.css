@@ -156,3 +156,18 @@ margin-top: 30px;
         position: relative;
     }
 }
+
+
+.alert {
+    padding: 13px;
+    margin-top: 20px;
+    font-size: 13px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+  }

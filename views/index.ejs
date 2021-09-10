@@ -25,21 +25,23 @@
           <div class="forms__container">
             <form name="login_form" action="" method="" class="forms__container-login">
               <h2>Iniciar sesión</h2>
-              <input type="text" name="dni" placeholder="DNI">
+              <input type="number" name="dni" maxlength="8"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="DNI">
               <input type="password" name="password" placeholder="Contraseña">
               <button id="login">Ingresar</button>
+              <div id="alert_login" class="alert alert-danger" role="alert"></div>
             </form>
 
             <form name="register_form" action="" method="" class="forms__container-register">
               <h2>Registrarse</h2>
-              <input type="number" name="dni" placeholder="DNI">
-              <input type="text" name="nombre"  placeholder="Nombres">
-              <input type="text" name="paterno" placeholder="Apellido Paterno">
-              <input type="text" name="materno" placeholder="Apellido Materno">
+              <input type="number" name="dni" maxlength="8"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="DNI">
               <input type="password" name="password" placeholder="Contraseña">
-              <input type="number" name="verification"placeholder="Codigo Verificación">
-              
+              <input type="password" name="repassword" placeholder="Repetir Contraseña">
+              <input type="number" name="verification" maxlength="1"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Codigo Verificación">
               <button id="register">Registrarse</button>
+              <div id="alert_register" class="alert alert-danger" role="alert"></div>
             </form>
           </div>
       </div>
