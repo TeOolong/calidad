@@ -4,36 +4,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const PORT = 3000
 app.set('view engine', 'ejs');
-const { pool } = require("./database/config/config");
-
-const passport = require('passport');
-const cookieParser = require('cookie-parser')
-const session = require('express-session')
-const PassportLocal = require('passport-local').Strategy;
+const session = require('express-session');
 
 app.use(express.urlencoded({extended : true}));
-app.use(cookieParser('secret'));
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}))
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new PassportLocal((dni,nombre,done)=>{
-    return done(null, {id: dni, name: nombre})
-}))
-passport.serializeUser((user, done)=>{
-    
-    done(null, user.id);
-});
-passport.deserializeUser(async(id, done)=>{
-    const results = await pool.query(`SELECT * FROM Cliente WHERE DNI =$1`, [id]);
-    const user = results.rows[0];
-    done(null, {id: user.dni, name: user.Nombre})
-})
-
 
 app.set('views', './views');
 app.use(express.static('public/views'));
@@ -43,23 +16,32 @@ app.use('/js', express.static('public/js'));
 
 const userApi = require('./api/user');
 
+app.use(
+    session({
+        secret: "Patentado por Abaco",
+        resave: false,
+        saveUninitialized: false
+    })
+)
 
 app.get('/' ,(req, res) => {
     res.render('index');
 });
 
-app.get('/awa' ,(req, res) => {
-    res.render('main');
+app.get('/main' ,(req, res) => {
+    if(req.session.isAuth){
+        res.render('main');
+    }
+    else {
+        res.redirect('/');
+    }
+    
 });
 
 app.post('/login', userApi.login);
 
 app.post('/register', userApi.register);
 
-app.post('/autentificado', passport.authenticate('local',{
-    successRedirect: "/awa",
-    failureRedirect: "/"
-}) )
 
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)

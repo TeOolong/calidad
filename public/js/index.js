@@ -27,6 +27,8 @@ const login = async(event) => {
         console.log("todo gucci");
         document.getElementById("alert_login").style.display = "none"
         document.getElementById("alert_login").style.opacity = "0";
+        window.location.href = "/main"
+        
     }
     else{
         document.getElementById("alert_login").innerHTML = log.msg;

@@ -1,8 +1,7 @@
 const fetch = require('node-fetch');
 const bcrypt = require('bcrypt');
 const { pool } = require("../database/config/config");
-const passport = require("passport");
-const { render } = require('ejs');
+const session = require('express-session');
 
 const userApi = {
     login : async(req, res) => {
@@ -43,16 +42,16 @@ const userApi = {
                 
             }
         }
-        
-        if(objRes.msg!=""){
-            res.json(objRes);
-        }       
-        else{
-            res.redirect('http://localhost:3000/awa');
+        if(objRes.msg==""){
+            req.session.isAuth = true;
         }
+        res.json(objRes);
+        
+
 
     },
     register : async(req, res) => {
+        
         let { dni,password,repassword,verification} = req.body;
         let objRes;
         
