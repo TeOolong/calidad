@@ -38,6 +38,10 @@ app.get('/main' ,(req, res) => {
     
 });
 
+app.get('/usuario' ,(req, res) => {
+    res.render("usuario")
+});
+
 app.post('/login', userApi.login);
 
 app.post('/register', userApi.register);
