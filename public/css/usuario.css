@@ -33,51 +33,128 @@
     height: 100px;
     }
 
-    /* balblasd */
-    .bmenu {
-        width: 100%;
-        height: 40px;
-
+    .header{
+        background: rgba(145, 203, 226, 0.8);
+        color:white;
+        padding: 0.75rem 0;
+        /* position:fixed;
+        left:0;
+        top:10px;
+        right:0; IDEA NOT WORK*/
     }
-    .bmenu ul{
-        list-style:none;
-        margin:0;
+
+    .header a{
+        color: white;
+        text-decoration:none;
+    }
+
+    .logo-nav-container {
+        display: flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+    }
+
+    .logo {
+        letter-spacing: 5px;
+        font-size: 30px;
+        margin-left: 25px;
+    }
+
+    .navigation ul{
+        margin: 0;
         padding:0;
-        background-color: rgba(97, 230, 130, 0.473);
+        list-style:none;
     }
 
-    .bmenu ul li{
+    .navigation ul li{
         display: inline-block;
     }
 
-    .bmenu ul li a{
-        color:black;
-        text-decoration:none;
+    .navigation ul li a{
         display:block;
-        font-size: 14px;
-        padding:25px 60px;
+        padding: 0.5rem 1rem;
+        font-size: 22px;
+   
+        /* border-radius: 5px; NOT WORKING*/
     }
 
 
-    .item-r {
-        float:right;
+    .navigation ul li a:hover{
+        color:teal;
+        
     }
-    .item-r:hover {
-        background-color: red;
+
+    .footer {
+        background: #707070;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 1rem;
     }
-    .item-r a:hover {
-        background-color: red;
+
+    .footer p{
+        margin:0
     }
- 
+
+    .img-dc{
+        max-width: 100%;
+        height:auto;
+    }
+
+    .comentary{
+        display:grid;
+        grid-template-columns: 40% 60%;
+        margin:0;
+        padding:0;
+        align-items: center;
+    }
+
+    .comentary-text{
+        background: bisque;
+        border-radius: 20px;
+        flex-wrap:wrap;
+    }
+
+    
+    .others{
+        margin:0;
+        padding:0;
+        align-items:center;
+    }
+     
     
     @media screen and (min-width: 850px) {
         .carousel-item> img {
             width: auto; 
             height: 720px; 
            }
-        .bmenu ul li a{
+        /* .bmenu ul li a{
             font-size: 25px;
-        }
+        } */
 
     
+    }
+
+    @media only screen and(max-width:767px){
+        /*cuando la ventana este de ancho 0 hasta 767px, se aplique esto*/
+        .navigation{
+            width:100%;
+            margin-top:1rem;
+        }
+
+        .navigation ul li{
+            display: block;
+        }
+    
+        .navigation ul li a{
+            display:block;
+            padding: 0.5rem 0;
+            /* border-radius: 5px; NOT WORKING*/
+        }
+    
+        .navigation ul li:hover{
+            background: #4a4a4a;
+        }
+
+
     }
