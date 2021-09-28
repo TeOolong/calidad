@@ -1,0 +1,16 @@
+.carousel-item> img {
+    width: 100%; 
+    height: 480px; 
+   }
+
+@media screen and (min-width: 850px) {
+    .carousel-item> img {
+        width: 100%; 
+        height: 720px; 
+       }
+}
+
+.minsa {
+    height: 70%;
+    width: 70%;
+}
