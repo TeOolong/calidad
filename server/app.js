@@ -46,7 +46,10 @@ app.post('/login', userApi.login);
 
 app.post('/register', userApi.register);
 
-
+//Datos Personales GET
+app.get('/DatosPersonales',(req,res)=>{
+    res.render("DatosPersonales")
+})
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)
 })
