@@ -96,9 +96,10 @@
         margin:0
     }
 
-    .img-dc{
-        max-width: 100%;
-        height:auto;
+    .img-doctor{
+        border-radius: 50%;
+        height: 85%;
+        width: 85%;
     }
 
     .comentary{
@@ -113,13 +114,23 @@
         background: bisque;
         border-radius: 20px;
         flex-wrap:wrap;
+        font-size: 1vw;
     }
 
     
     .others{
         margin:0;
         padding:0;
+
         align-items:center;
+    }
+
+    .others> img{
+        max-width: 100%;
+    }
+
+    .comentary> img{
+        max-width: 100%;
     }
      
     
