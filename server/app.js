@@ -50,6 +50,10 @@ app.post('/register', userApi.register);
 app.get('/DatosPersonales',(req,res)=>{
     res.render("DatosPersonales")
 })
+//Historial clínico Persoanl GET
+app.get('/HistorialClinico',(req,res)=>{
+    res.render("HistorialClinico")
+})
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)
 })
