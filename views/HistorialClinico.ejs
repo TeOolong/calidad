@@ -35,7 +35,7 @@
     </div>
     <header class="header">
         <div class="logo-nav-container">
-            <a href="#" class="logo">BIENVENIDO</a>
+            <a href="#" class="logo fw-bold fs-1">BIENVENIDO</a>
             <nav class="navigation">
                 <ul>
                     <li><a href="#">
@@ -71,66 +71,60 @@
     <main>
         <div class="row">
             <!--Para los datos del perfil Nombre, APellido, entre otros-->
-            <div class="col PanelDatos">
+            <div class="col PanelDatos  p-4" style="height: 780px;"  >
                 <!--Título y botón-->
                 <div class="row TitulosCard">
-                    <div class="col">
-                        <h4>Historial Clínico </h4>
+                    <div class="col ">
+                        <h4 class="fw-bold fw-bold fs-2">Historial Clínico </h4>
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col">
                         <img class="img-fluid" src="/images/inicio.jpg" alt="">
                     </div>
-                    <div class="col Container2">
-                        <div class="row mb-3 Inputs">
-                            <label for="" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col Container2" style="height: 200px;" >
+                        <div class="row mb-2 Inputs" style="height: 60px;">
+                            <label for="" class="col-sm-2 fw-bold col-form-label">Nombre</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputEmail3" placeholder="Alejandro">
                             </div>
                         </div>
                         <div class="row mb-3 Inputs">
-                            <label for="" class="col-sm-2 col-form-label">Apellido</label>
+                            <label for="" class="col-sm-2 col-form-label fw-bold">Apellido</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputEmail3" placeholder="Sarmiento">
                             </div>
                         
                         </div>
+                       
                     </div>
 
                 </div>
-                <div class="row pt-3">
-                    <div class="col-5">
-                        <h4>Enfermedad del paciente</h4>
-                        <div class="col Container2">
-                            <div class="row">
-                                <div class="col">
+                <div >
+                    <div class="pt-3">
+                        <h4 class="fs-3 fw-bold">Enfermedad del paciente</h4>
+                        <div class="col Container2 p-3" style="height: 300px;">
+                            <div class="row" style="padding:60px;">
+                                <div class="col p-3 ">
                                     <ul>
-                                        <li>Diabetes</li>
-                                        <li>Cancer</li>
+                                        <li class="fs-3 fw-bold">Diabetes</li>
+                                        <li class="fs-3 fw-bold" >Colesterol</li>
+                                        <li class="fs-3 fw-bold">Fibrosis hepática</li>
                                     </ul>
                                 </div>
-                                <div class="col">
+                                <div class="col p-3">
                                     <ul>
-                                        <li>Diabetes</li>
-                                        <li>Cancer</li>
-                                        <li>Craneosinostosis</li>
+                                        
+                                        <li class="fs-3 fw-bold">Síndrome de Eh</li>
+                                        <li class="fs-3 fw-bold">Cancer</li>
+                                        <li class="fs-3 fw-bold">Craneosinostosis</li>
                                     </ul>
                                 </div>
                             </div>
                             
                         </div>
                     </div>
-                    <div class="col-2"></div>
-                    <div class="col-5">
-                        <h4>Medicamentos para el paciente</h4>
-                        <div class="col Container2">
-                            <ul>
-                                <li>Azul de Prusia​</li>
-                                <li>Cafeína Citrato</li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <!--Fin-->
@@ -138,11 +132,28 @@
 
             </div>
             <div class="col">
-                <h4>Subir más información sobre tu historial clínico</h4>
-                <div class="Medicamento">
-                    <input class="btn-secondary" type="file" name="archivosubido">
+                
+                <h4 class="fw-bold">Subir más información sobre tu historial clínico</h4>
+                <div class=" row Medicamento"style="height: 360px;" >
+                    <div class="col"><input class="btn-secondary" type="file" name="archivosubido" ></div>
+                    <div class="col "> <img src="images/carga-masiva.png" class="img-fluid rounded float-start" alt="UPLOAD"></div>
+                    
+                           
+                            
+                    
                 </div>
+                <div class="row pt-3" >
+                    <h4 class="fw-bold">Medicamentos para el paciente</h4>
+                    <div class="col Container2"style="height: 300px;">
+                        <ul>
+                            <li class="fw-bold">Azul de Prusia​</li>
+                            <li class="fw-bold">Cafeína Citrato</li>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
+           
         </div>
     </main>
     <footer class="footer">
