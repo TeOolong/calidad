@@ -1,75 +1,47 @@
-.header{
-    background: rgba(145, 203, 226, 0.8);
-    color:white;
-    padding: 0.75rem 0;
-    /* position:fixed;
-    left:0;
-    top:10px;
-    right:0; IDEA NOT WORK*/
+.nav__links li, a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #282828;
+    text-decoration: none;
 }
 
-.header a{
-    color: white;
-    text-decoration:none;
-}
-
-.logo-nav-container {
+header {
     display: flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 5%;
 }
 
 .logo {
-    letter-spacing: 5px;
-    font-size: 30px;
-    margin-left: 25px;
+    max-height: 70px;
+    cursor: pointer;
+    margin-right: auto;
 }
-
-.navigation ul{
+.nav__links {
+    list-style: none;
     margin: 0;
-    padding:0;
-    list-style:none;
 }
-
-.navigation ul li{
+.nav__links li {
     display: inline-block;
+    padding: 0px 20px;
 }
 
-.navigation ul li a{
-    display:block;
-    padding: 0.5rem 1rem;
-    font-size: 22px;
-
-    /* border-radius: 5px; NOT WORKING*/
+.nav__links li a:hover{
+    color: #4D5E6F;
 }
-
-
-.navigation ul li a:hover{
-    color:teal;
-    
+.button__logout {
+    font-weight: 500;
+    font-size: 16px;
 }
+.button__logout button {
+    padding: 9px 25px;
+    background-color: #4D5E6F ;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #F7FAFA;
 
-@media only screen and(max-width:767px){
-    /*cuando la ventana este de ancho 0 hasta 767px, se aplique esto*/
-    .navigation{
-        width:100%;
-        margin-top:1rem;
-    }
-
-    .navigation ul li{
-        display: block;
-    }
-
-    .navigation ul li a{
-        display:block;
-        padding: 0.5rem 0;
-        /* border-radius: 5px; NOT WORKING*/
-    }
-
-    .navigation ul li:hover{
-        background: #4a4a4a;
-    }
-
-
+}
+.button__logout button:hover {
+    background-color: #3C4956;
 }
