@@ -1,0 +1,75 @@
+.header{
+    background: rgba(145, 203, 226, 0.8);
+    color:white;
+    padding: 0.75rem 0;
+    /* position:fixed;
+    left:0;
+    top:10px;
+    right:0; IDEA NOT WORK*/
+}
+
+.header a{
+    color: white;
+    text-decoration:none;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo {
+    letter-spacing: 5px;
+    font-size: 30px;
+    margin-left: 25px;
+}
+
+.navigation ul{
+    margin: 0;
+    padding:0;
+    list-style:none;
+}
+
+.navigation ul li{
+    display: inline-block;
+}
+
+.navigation ul li a{
+    display:block;
+    padding: 0.5rem 1rem;
+    font-size: 22px;
+
+    /* border-radius: 5px; NOT WORKING*/
+}
+
+
+.navigation ul li a:hover{
+    color:teal;
+    
+}
+
+@media only screen and(max-width:767px){
+    /*cuando la ventana este de ancho 0 hasta 767px, se aplique esto*/
+    .navigation{
+        width:100%;
+        margin-top:1rem;
+    }
+
+    .navigation ul li{
+        display: block;
+    }
+
+    .navigation ul li a{
+        display:block;
+        padding: 0.5rem 0;
+        /* border-radius: 5px; NOT WORKING*/
+    }
+
+    .navigation ul li:hover{
+        background: #4a4a4a;
+    }
+
+
+}

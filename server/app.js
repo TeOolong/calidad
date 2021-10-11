@@ -9,6 +9,7 @@ const session = require('express-session');
 app.use(express.urlencoded({extended : true}));
 
 app.set('views', './views');
+app.set('layouts', './layouts');
 app.use(express.static('public/views'));
 app.use('/css', express.static('public/css'));
 app.use('/images', express.static('public/images'));
@@ -28,9 +29,9 @@ app.get('/' ,(req, res) => {
     res.render('index');
 });
 
-app.get('/main' ,(req, res) => {
-    if(req.session.isAuth){
-        res.render('main');
+app.get('/usuario' ,(req, res) => {
+    if(true|| req.session.isAuth){
+        res.render('usuario');
     }
     else {
         res.redirect('/');
@@ -38,21 +39,30 @@ app.get('/main' ,(req, res) => {
     
 });
 
-app.get('/usuario' ,(req, res) => {
-    res.render("usuario")
-});
-
 app.post('/login', userApi.login);
+
 
 app.post('/register', userApi.register);
 
 //Datos Personales GET
-app.get('/DatosPersonales',(req,res)=>{
-    res.render("DatosPersonales")
-})
+app.get('/DatosPersonales' ,(req, res) => {
+    if(true || req.session.isAuth){
+        res.render('DatosPersonales');
+    }
+    else {
+        res.redirect('/');
+    }
+    
+});
 //Historial clínico Persoanl GET
-app.get('/HistorialClinico',(req,res)=>{
-    res.render("HistorialClinico")
+app.get('/HistorialClinico' ,(req, res) => {
+    if(true || req.session.isAuth){
+        res.render('HistorialClinico');
+    }
+    else {
+        res.redirect('/');
+    }
+    
 })
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)
