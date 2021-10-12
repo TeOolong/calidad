@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenida Usuario</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/css/usuario.css">
+    <link rel="stylesheet" href="/css/inicio.css">
     
     <!-- Start of  Zendesk Widget script -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=22330404-1a48-48fc-9661-aa730165bb5e"> </script>
@@ -22,39 +22,44 @@
     <%- include("layouts/navbar") %>           
     <div class="container">
     <!-- las imagenes desplegadas de achim -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <div id="news__carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#news__carousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#news__carousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#news__carousel" data-bs-slide-to="2"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url(/images/Noticia1.jpeg)">
+              <div class="carousel-caption d-none d-md-block">
+                <h1>Primera noticia</h1>
+                <p>El awa de uwu es vida</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="background-image: url(/images/Noticia2.jpg)">
+              <div class="carousel-caption d-none d-md-block">
+                <h1>Segunda noticia</h1>
+                <p>El awa de uwu es vida</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="background-image: url(/images/Noticia3.jpg)">
+              <div class="carousel-caption d-none d-md-block">
+                <h1>Tercera noticia</h1>
+                <p>El awa de uwu es vida</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#news__carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#news__carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/images/Noticia1.jpeg" class="d-block w-100" alt="Noticia1">
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Noticia2.jpg" class="d-block w-100" alt="Noticia2">
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Noticia3.jpg" class="d-block w-100" alt="Noticia3">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        
       </div>
 
     <!-- termino sus imagenes -->
-
       <div class="row others">
-          
-        
-
         <div class="col-3">
             <div class="row m-2 others">
                 <img  
@@ -76,14 +81,12 @@
 
             <div class="row m-4 comentary">
                 <img class="img-fluid img-doctor" src="/images/Doctor.jpg" alt="Doctor">
-                <div class="m-1 comentary-text">
+                <div class="m-3 comentary-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut porttitor massa. Aenean vitae condimentum risus, nec feugiat risus. Vivamus ac condimentum eros.
                 </div>
             </div>
             
         </div>
-
-
         <div class="col-3">
             <div class="row m-2 others">
                 <img  
@@ -94,7 +97,7 @@
 
 
     </div>
-  </div>
+  
 
 
     <%- include("layouts/footer") %>

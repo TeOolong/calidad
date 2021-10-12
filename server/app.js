@@ -29,9 +29,9 @@ app.get('/' ,(req, res) => {
     res.render('index');
 });
 
-app.get('/usuario' ,(req, res) => {
+app.get('/inicio' ,(req, res) => {
     if(true|| req.session.isAuth){
-        res.render('usuario');
+        res.render('inicio');
     }
     else {
         res.redirect('/');

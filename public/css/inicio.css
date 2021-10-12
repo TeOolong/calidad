@@ -5,13 +5,20 @@ body {
     margin: 0;
     padding: 0;
     background: #F7FAFA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+.carousel-item {
+    height: 40rem;
+    background-position: center;
+    background-size: cover;
+}
+.carousel-item h1,p {
+    color: #282828;
+}
 
-.carousel-item> img {
-    width: auto; 
-    height: 480px; 
-   }
 
 .doctor> img {
     width: 100px; 
@@ -60,7 +67,7 @@ body {
     .others{
         margin:0;
         padding:0;
-
+        background: #F7FAFA;
         align-items:center;
     }
 
@@ -72,16 +79,5 @@ body {
         max-width: 100%;
     }
      
-    
-    @media screen and (min-width: 850px) {
-        .carousel-item> img {
-            width: auto; 
-            height: 720px; 
-           }
-        /* .bmenu ul li a{
-            font-size: 25px;
-        } */
 
-    
-    }
 

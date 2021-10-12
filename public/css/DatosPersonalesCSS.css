@@ -1,4 +1,8 @@
-
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 ol{
     list-style: none;
     display: grid;
