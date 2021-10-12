@@ -17,12 +17,14 @@ body {
     color: #282828;
 }
 
+
 .comments {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .comments__heading {
@@ -33,6 +35,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
 }
 
 .comments__heading span {
@@ -43,12 +47,24 @@ body {
     text-transform: uppercase;
 }
 
+.comments__panflets{
+    width: 25%;
+    margin: auto;
+}
+
+.comments__panflets img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .comments__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50%;
+    width: 30%;
 }
 
 .comment__box {
