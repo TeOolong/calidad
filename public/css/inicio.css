@@ -1,5 +1,3 @@
-
-
 body {
     box-sizing: border-box;
     margin: 0;
@@ -19,65 +17,89 @@ body {
     color: #282828;
 }
 
+.comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
-.doctor> img {
-    width: 100px; 
-    height: 100px;
-    margin-top: 60%;
-   }
+.comments__heading {
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.comments__heading span {
+    font-size: 1.3rem;
+    color: #282828;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
+.comments__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
 
-.cuadrado{
-    padding:5px;
-    background-color: #75cec97a;
-    padding: 3px 10px;
-    border: PowderBlue 5px solid;
-    border-radius: 20px;
-    color: white;
-    height: 100px;
-    }
+.comment__box {
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+}
+.profile__image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
-   
+.comment__profile{
+    display: flex;
+    align-items: center;
+}
 
+.profile__username {
+    display: flex;
+    flex-direction: column;
+}
 
+.profile__username strong {
+    color: #282828;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+} 
+.profile__username span {
+    color: #282828;
+    font-size: 0.8rem;   
+}
 
-    .img-doctor{
-        border-radius: 50%;
-        height: 85%;
-        width: 85%;
-    }
+.comment__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-    .comentary{
-        display:grid;
-        grid-template-columns: 40% 60%;
-        margin:0;
-        padding:0;
-        align-items: center;
-    }
-
-    .comentary-text{
-        background: bisque;
-        border-radius: 20px;
-        flex-wrap:wrap;
-        font-size: 1vw;
-    }
-
-    
-    .others{
-        margin:0;
-        padding:0;
-        background: #F7FAFA;
-        align-items:center;
-    }
-
-    .others> img{
-        max-width: 100%;
-    }
-
-    .comentary> img{
-        max-width: 100%;
-    }
-     
-
-
+.comment__content {
+    font-size: 0.9rem;
+    color: #4b4b4b;
+}
