@@ -153,6 +153,11 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
+.drag__container.active {
+    background-color: #b8d4fe;
+    color: black;
+    border: 5px dashed #618ac9;
+}
 .drag__container h2{
     letter-spacing: 1px;
     font-weight: 500;
@@ -177,4 +182,25 @@
     cursor: pointer;
 }
 
+.file__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: solid 1px #ddd;
+}
 
+.preview__container{
+    margin-top: 10px;
+}
+
+.status__text {
+    padding: 0 10px;
+}
+
+.success {
+    color: #52ad5a;
+}
+
+.failure {
+    color: #ff0000;}
