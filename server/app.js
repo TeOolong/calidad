@@ -45,16 +45,6 @@ app.post('/login', userApi.login);
 app.post('/register', userApi.register);
 
 //Datos Personales GET
-app.get('/DatosPersonales' ,(req, res) => {
-    if(true || req.session.isAuth){
-        res.render('DatosPersonales');
-    }
-    else {
-        res.redirect('/');
-    }
-    
-});
-//Historial clínico Persoanl GET
 app.get('/HistorialClinico' ,(req, res) => {
     if(true || req.session.isAuth){
         res.render('HistorialClinico');
@@ -63,7 +53,18 @@ app.get('/HistorialClinico' ,(req, res) => {
         res.redirect('/');
     }
     
-})
+});
+app.get('/perfil' ,(req, res) => {
+    if(true || req.session.isAuth){
+        res.render('perfil');
+    }
+    else {
+        res.redirect('/');
+    }
+    
+});
+//Historial clínico Persoanl GET
+
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)
 })
