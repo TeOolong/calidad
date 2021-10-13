@@ -44,10 +44,9 @@ app.post('/login', userApi.login);
 
 app.post('/register', userApi.register);
 
-//Datos Personales GET
-app.get('/HistorialClinico' ,(req, res) => {
+app.get('/historial' ,(req, res) => {
     if(true || req.session.isAuth){
-        res.render('HistorialClinico');
+        res.render('historial');
     }
     else {
         res.redirect('/');

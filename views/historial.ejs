@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Vacunación</title>
+    <link rel="stylesheet" href="/css/historial.css">
+    <!-- Start of  Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=22330404-1a48-48fc-9661-aa730165bb5e"> </script>
+    <!-- End of  Zendesk Widget script -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <%- include("layouts/navbar") %>  
+
+    <div class="box" style="margin-top: 20px">
+        <div class="box__col">
+            <div class="box__container">
+                <div class="left__container">
+                    <img src="/images/user1.jpg" alt="">
+                    <h4>Croncker</h4>
+                    <p>@elviscrock</p>
+                </div>
+                <div class="right__container">
+                    <div class="info__container">
+                        <h3>Resumen</h3>
+                        <div class="info__data">
+                            <div class="data">
+                                <h5>Nombre completo</h5>
+                                <p>Orlando Andres Galán Loza</p>
+                            </div>
+                            <div class="data">
+                                <h5>Edad</h5>
+                                <p>21 años</p>
+                            </div>
+                            <div class="data">
+                                <h5>Teléfono</h5>
+                                <p>999999999</p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="whole__container">
+                    <h3>Enfermedades diagnosticadas</h3>
+                    <div class="symptoms__container">
+                        <ul>
+                            <li>Diabetes</li>
+                            <li>Colesterol</li>
+                            <li>Síndrome de Eh</li>
+                            <li>Fibrosis hepática</li>
+                            <li>Cancer</li>
+                            <li>Diabetes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="box__col">
+            <div class="box__container">
+                <div class="whole__container">
+                    <div class="drag__container">
+                        <h2>Arrastra y suelta tu historial clínico</h2>
+                        <span>o</span>
+                        <button>Selecciona tus archivos</button>
+                        <input type="file" name="" class="input-file" hidden multiple>
+                    </div>
+                    <div class="preview__container">
+
+                    </div>
+                </div>
+                <div class="whole__container">
+                    <h3>Medicamentos recetados</h3>
+                    <div class="drugs__container">
+                        <ul>
+                            <li>Azul de Prusia​</li>
+                            <li>Cafeína Citrato</li>
+                            <li>Ibuprofeno</li>
+                            <li>Paracetamol</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+  
+    </div>
+    <script src="/js/historial.js"></script>  
+    <%- include("layouts/footer") %>
+</body>
+
+</html>
