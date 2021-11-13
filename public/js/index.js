@@ -1,4 +1,5 @@
 const URL_BASE = 'http://localhost:3000';
+
 var forms_container = document.querySelector(".forms__container");
 var form_login = document.querySelector(".forms__container-login");
 var form_register = document.querySelector(".forms__container-register");
@@ -114,6 +115,3 @@ document.getElementById("alert_login").style.display = "none"
 document.getElementById("alert_login").style.opacity = "0";
 document.getElementById("alert_register").style.display = "none"
 document.getElementById("alert_register").style.opacity = "0";
-
-
-

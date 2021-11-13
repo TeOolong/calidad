@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const bcrypt = require('bcrypt');
 const { pool } = require("../database/config/config");
 const session = require('express-session');
-
+const dateRef = new Date('December 17, 1995 03:24:00');
 const userApi = {
     login : async(req, res) => {
         let { dni, password} = req.body;
@@ -18,7 +18,7 @@ const userApi = {
                 msg : "Presentar un número de DNI valido"
             }
             else {
-                const results = await pool.query(`SELECT * FROM Cliente WHERE DNI =$1`, [dni]);
+                const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [dni]);
                 if(results.rows.length > 0){
                     const user = results.rows[0];
                     
@@ -90,7 +90,7 @@ const userApi = {
                     }
                     else {
                         let hashedPassword = await bcrypt.hash(password, 10);
-                        const doExist = await pool.query(`SELECT * FROM Cliente WHERE DNI =$1`,[dni]);
+                        const doExist = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`,[dni]);
                         if (doExist.rows.length > 0) {
                             objRes = {
                                 msg : "Usuario ya ha sido registrado"
@@ -98,8 +98,10 @@ const userApi = {
                         }
                         else {
                             pool.query(
-                                `INSERT INTO Cliente (ID_Cliente, DNI, Nombre, ApellidoPaterno, ApellidoMaterno, Password, CodigoVer)
-                                VALUES ($1, $2, $3, $4, $5, $6, $7)`, [dni,dni,data.data.nombres,data.data.apellido_paterno,data.data.apellido_materno,hashedPassword,verification]);
+                                `INSERT INTO Cliente (ID_Cliente, NombreCli, ApePCli,ApeMCli, DNICli, contraseñaCLI, Direccion, FechaNacCli, CdoVrfCli, Dosis) 
+                                VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10)`, 
+                                [dni,data.data.nombres,data.data.apellido_paterno, data.data.apellido_materno, dni,hashedPassword,data.data.direccion_completa,dateRef.toISOString().slice(0, 10),verification, 0 ]); 
+                                
                             objRes = {
                                 msg : ""
                             } 

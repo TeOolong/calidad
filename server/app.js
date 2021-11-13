@@ -14,8 +14,14 @@ app.use(express.static('public/views'));
 app.use('/css', express.static('public/css'));
 app.use('/images', express.static('public/images'));
 app.use('/js', express.static('public/js'));
+app.use('/controllers', express.static('public/js/controllers'));
 
+//APIs enlaces
 const userApi = require('./api/user');
+const noticeApi = require('./api/notice');
+const medicoApi = require('./api/medico');
+const comentApi = require('./api/coment');
+//
 
 app.use(
     session({
@@ -38,11 +44,14 @@ app.get('/inicio' ,(req, res) => {
     }
     
 });
-
+// APIs
 app.post('/login', userApi.login);
-
-
 app.post('/register', userApi.register);
+app.get('/notices', noticeApi.getAllNotices);
+app.get('/medicos', medicoApi.getAllMedicos);
+app.post('/medico', medicoApi.getMedico);
+app.get('/comentarios', comentApi.getAllComents);
+//
 
 app.get('/historial' ,(req, res) => {
     if(true || req.session.isAuth){
