@@ -17,33 +17,39 @@ const userApi = {
             objRes = {
                 msg : "Presentar un número de DNI valido"
             }
-            else {
-                const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [dni]);
-                if(results.rows.length > 0){
-                    const user = results.rows[0];
-                    
-                    const isValid = await bcrypt.compare(password, user.password);
-                    if(isValid){
-                        objRes = {
-                            msg : ""
-                        }
-                    }
-                    else{
-                        objRes = {
-                            msg : "Contraseña es incorrecta"
-                        }
-                    }
+            else{
+                if(dni.length !=8) 
+                objRes = {
+                    msg : "Presentar un número de DNI valido"
                 }
                 else {
-                    objRes = {
-                        msg : "Usuario no registrado"
+                    const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [dni]);
+                    if(results.rows.length > 0){
+                        const user = results.rows[0];
+                        const isValid = await bcrypt.compare(password, user.contraseñacli);
+                        if(isValid){
+                            objRes = {
+                                msg : ""
+                            }
+                        }
+                        else{
+                            objRes = {
+                                msg : "Contraseña es incorrecta"
+                            }
+                        }
                     }
+                    else {
+                        objRes = {
+                            msg : "Usuario no registrado"
+                        }
+                    }
+                    
                 }
-                
             }
         }
         if(objRes.msg==""){
             req.session.isAuth = true;
+            req.session.userId = dni;
         }
         res.json(objRes);
         
@@ -111,6 +117,15 @@ const userApi = {
             }
         }
         res.json(objRes);
+    },
+
+    getUser : async(req, res) => {
+        const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [req.session.userId]);
+        const user = results.rows[0];
+        res.json({
+            data : user,
+            msg : ""
+        })
     }
         
 }

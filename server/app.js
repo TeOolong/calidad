@@ -38,6 +38,7 @@ app.get('/' ,(req, res) => {
 app.get('/inicio' ,(req, res) => {
     if(true|| req.session.isAuth){
         res.render('inicio');
+        console.log(req.session.userId)
     }
     else {
         res.redirect('/');
@@ -51,11 +52,13 @@ app.get('/notices', noticeApi.getAllNotices);
 app.get('/medicos', medicoApi.getAllMedicos);
 app.post('/medico', medicoApi.getMedico);
 app.get('/comentarios', comentApi.getAllComents);
+app.get('/user', userApi.getUser)
 //
 
 app.get('/historial' ,(req, res) => {
     if(true || req.session.isAuth){
         res.render('historial');
+        console.log(req.session.userId)
     }
     else {
         res.redirect('/');

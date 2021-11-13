@@ -3,7 +3,6 @@ var NM = new NoticeManager();
 var MM = new MedicoManager();
 var CM = new ComentarioManager();
 
-
 const cargarNoticias = async() => {
     var noticias = await NM.obtenerNoticias();
     var carousel = document.querySelector(".carousel-inner");
@@ -19,8 +18,6 @@ const cargarNoticias = async() => {
         carousel.appendChild(noticia_box)
     }
 }
-
-
 
 const cargarComentarios= async() => {
     const comentarios = await CM.obtenerComentarios();
