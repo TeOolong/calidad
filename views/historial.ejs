@@ -20,39 +20,22 @@
         <div class="box__col">
             <div class="box__container">
                 <div class="left__container">
-                    <img src="/images/user1.jpg" alt="">
-                    <h4>Croncker</h4>
-                    <p>@elviscrock</p>
+                    <img src="/images/user.png" alt="">
+                    
                 </div>
                 <div class="right__container">
                     <div class="info__container">
                         <h3>Resumen</h3>
                         <div class="info__data">
-                            <div class="data">
-                                <h5>Nombre completo</h5>
-                                <p>Orlando Andres Galán Loza</p>
-                            </div>
-                            <div class="data">
-                                <h5>Edad</h5>
-                                <p>21 años</p>
-                            </div>
-                            <div class="data">
-                                <h5>Teléfono</h5>
-                                <p>999999999</p>
-                            </div>
+                            
                         </div>
                     </div>    
                 </div>
                 <div class="whole__container">
                     <h3>Enfermedades diagnosticadas</h3>
                     <div class="symptoms__container">
-                        <ul>
-                            <li>Diabetes</li>
-                            <li>Colesterol</li>
-                            <li>Síndrome de Eh</li>
-                            <li>Fibrosis hepática</li>
-                            <li>Cancer</li>
-                            <li>Diabetes</li>
+                        <ul id="enfermedades">
+
                         </ul>
                     </div>
                 </div>
@@ -67,7 +50,7 @@
                         <h2>Arrastra y suelta tu historial clínico</h2>
                         <span>o</span>
                         <button>Selecciona tus archivos</button>
-                        <input type="file" name="" class="input-file" hidden multiple>
+                        <input type="file" name="" class="input-file" hidden>
                     </div>
                     <div class="preview__container">
                         
@@ -76,11 +59,8 @@
                 <div class="whole__container">
                     <h3>Medicamentos recetados</h3>
                     <div class="drugs__container">
-                        <ul>
-                            <li>Azul de Prusia​</li>
-                            <li>Cafeína Citrato</li>
-                            <li>Ibuprofeno</li>
-                            <li>Paracetamol</li>
+                        <ul id="medicamentos">
+
                         </ul>
                     </div>
                 </div>
@@ -89,6 +69,10 @@
   
   
     </div>
+    <script src="/js/data/HistorialClinico.js"></script>
+    <script src="/js/controllers/HistorialClinicoManager.js"></script>
+    <script src="/js/data/Usuario.js"></script>
+    <script src="/js/controllers/UsuarioManager.js"></script>
     <script src="/js/historial.js"></script>  
     <%- include("layouts/footer") %>
 </body>

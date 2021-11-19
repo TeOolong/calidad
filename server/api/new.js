@@ -1,7 +1,7 @@
 const { pool } = require("../database/config/config");
 
-const noticeApi = {
-    getAllNotices : async(req, res) => {
+const newApi = {
+    getAllNews : async(req, res) => {
         const results = await pool.query(`SELECT * FROM Noticia`);
         const notices = results.rows;
         res.json({
@@ -11,4 +11,4 @@ const noticeApi = {
     }
 }
 
-module.exports = noticeApi;
+module.exports = newApi;

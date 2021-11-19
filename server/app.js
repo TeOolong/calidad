@@ -18,12 +18,13 @@ app.use('/controllers', express.static('public/js/controllers'));
 
 //APIs enlaces
 const userApi = require('./api/user');
-const noticeApi = require('./api/notice');
+const newApi = require('./api/new');
 const medicoApi = require('./api/medico');
 const comentApi = require('./api/coment');
 const vacunaApi = require('./api/vacuna');
 const centroApi = require('./api/centro');
 const citaApi = require('./api/cita');
+const historialApi = require('./api/historial');
 //
 
 app.use(
@@ -61,7 +62,7 @@ app.post('/login', userApi.login);
 app.post('/loginpro', userApi.loginProgramador);
 app.post('/register', userApi.register);
 app.post('/destroy', userApi.endSession);
-app.get('/notices', noticeApi.getAllNotices);
+app.get('/news', newApi.getAllNews);
 app.get('/medicos', medicoApi.getAllMedicos);
 app.post('/medico', medicoApi.getMedico);
 app.get('/comentarios', comentApi.getAllComents);
@@ -74,6 +75,8 @@ app.get('/citas', citaApi.getAllCitas)
 app.post('/cita', citaApi.getCitaByUser)
 app.post('/insert', citaApi.insertCita)
 app.post('/update', citaApi.updateCita)
+app.post('/historial', historialApi.getHistorialByUser)
+app.post('/newhistorial', historialApi.insertHistorial)
 
 //
 

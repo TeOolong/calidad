@@ -1,4 +1,4 @@
-class Notice {
+class Noticia {
     constructor(id, url, texto) {
       this.id = id;
       this.url = url;

@@ -1,5 +1,5 @@
 const URL_BASE = 'http://localhost:3000';
-var NM = new NoticeManager();
+var NM = new NoticiaManager();
 var MM = new MedicoManager();
 var CM = new ComentarioManager();
 
