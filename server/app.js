@@ -21,6 +21,9 @@ const userApi = require('./api/user');
 const noticeApi = require('./api/notice');
 const medicoApi = require('./api/medico');
 const comentApi = require('./api/coment');
+const vacunaApi = require('./api/vacuna');
+const centroApi = require('./api/centro');
+const citaApi = require('./api/cita');
 //
 
 app.use(
@@ -32,11 +35,19 @@ app.use(
 )
 
 app.get('/' ,(req, res) => {
-    res.render('index');
+    if(req.session.isAuth && req.session.isClient){
+        res.redirect('/inicio');
+    }else if(req.session.isAuth && req.session.isProgrammer){
+        res.redirect('/programador');
+    }
+    else{
+        res.render('index');
+    }
+    
 });
 
 app.get('/inicio' ,(req, res) => {
-    if(true|| req.session.isAuth){
+    if(req.session.isAuth && req.session.isClient){
         res.render('inicio');
         console.log(req.session.userId)
     }
@@ -47,18 +58,28 @@ app.get('/inicio' ,(req, res) => {
 });
 // APIs
 app.post('/login', userApi.login);
+app.post('/loginpro', userApi.loginProgramador);
 app.post('/register', userApi.register);
+app.post('/destroy', userApi.endSession);
 app.get('/notices', noticeApi.getAllNotices);
 app.get('/medicos', medicoApi.getAllMedicos);
 app.post('/medico', medicoApi.getMedico);
 app.get('/comentarios', comentApi.getAllComents);
 app.get('/user', userApi.getUser)
+app.get('/vacunas', vacunaApi.getAllVacunas)
+app.post('/vacuna', vacunaApi.getVacuna)
+app.get('/centros', centroApi.getAllCentros)
+app.post('/centro', centroApi.getCentro)
+app.get('/citas', citaApi.getAllCitas)
+app.post('/cita', citaApi.getCitaByUser)
+app.post('/insert', citaApi.insertCita)
+app.post('/update', citaApi.updateCita)
+
 //
 
 app.get('/historial' ,(req, res) => {
-    if(true || req.session.isAuth){
+    if(req.session.isAuth && req.session.isClient){
         res.render('historial');
-        console.log(req.session.userId)
     }
     else {
         res.redirect('/');
@@ -66,7 +87,7 @@ app.get('/historial' ,(req, res) => {
     
 });
 app.get('/perfil' ,(req, res) => {
-    if(true || req.session.isAuth){
+    if(req.session.isAuth && req.session.isClient){
         res.render('perfil');
     }
     else {
@@ -74,7 +95,18 @@ app.get('/perfil' ,(req, res) => {
     }
     
 });
+
+app.get('/programador' ,(req, res) => {
+    if(req.session.isAuth && req.session.isProgrammer){
+        res.render('programador');
+    }
+    else {
+        res.redirect('/');
+    }
+    
+});
 //Historial clínico Persoanl GET
+
 
 app.listen(PORT , () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)

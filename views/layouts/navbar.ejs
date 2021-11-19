@@ -9,5 +9,20 @@
             <li><a href="/perfil">Perfil</a></li>
         </ul>
     </nav>
-    <a class="button__logout" href="#"><button>Logout</button></a>
+    <a class="button__logout"><button>Logout</button></a>
+    <script>
+        var button = document.querySelector(".button__logout");
+        button.addEventListener("click", async() =>{
+            const resp = await fetch(`${URL_BASE}/destroy`,{
+            method : "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }});
+            const data = await resp.json();
+            window.location.href = "/"
+            
+        });
+
+    </script>
 </header>

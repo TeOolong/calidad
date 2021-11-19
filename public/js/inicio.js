@@ -20,6 +20,8 @@ const cargarNoticias = async() => {
 }
 
 const cargarComentarios= async() => {
+    const medicotest = await MM.obtenerMedico(1);
+    console.log(medicotest)
     const comentarios = await CM.obtenerComentarios();
     var comments_container = document.querySelector(".comments__container");
     for(comentario of comentarios) {

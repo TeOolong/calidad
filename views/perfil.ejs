@@ -21,9 +21,7 @@
             <div class="box__container">
                 <div class="left__container">
                     <img src="/images/user.png" alt="">
-                    <h4>Undefined</h4>
-                    <p>#########</p>
-                    <button onclick="window.location.href='/historial'">Historial clínico</button>
+                    
                 </div>
                 <div class="right__container">
                     <div class="info__container">
@@ -33,16 +31,8 @@
                         </div>
                     </div>
                     <div class="vacunation__container">
-                        <h3>Centro de vacunación</h3>
+                        <h3>Datos de vacunación</h3>
                         <div class="vacunation__data">
-                            <div class="data">
-                                <h5>Lugar</h5>
-                                <p>Clínica Internacional</p>
-                            </div>
-                            <div class="data">
-                                <h5>Vacuna</h5>
-                                <p>Pfizer</p>
-                            </div>
                         </div>
                     </div>
                     <div class="important__container">
@@ -119,9 +109,14 @@
             </div>
         </div>
     </div>
+    <script src="/js/data/Cita.js"></script>
+      <script src="/js/controllers/CitaManager.js"></script>
+    <script src="/js/data/CentroVacunacion.js"></script>
+      <script src="/js/controllers/CentroVacunacionManager.js"></script>
+    <script src="/js/data/Vacuna.js"></script>
+      <script src="/js/controllers/VacunaManager.js"></script>
     <script src="/js/data/Usuario.js"></script>
       <script src="/js/controllers/UsuarioManager.js"></script>
-    <script src="/js/components/calendar.js"></script>
     <script src="/js/perfil.js"></script>
       
     <%- include("layouts/footer") %>

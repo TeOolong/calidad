@@ -106,6 +106,12 @@ margin-top: 30px;
     outline: none;
 }
 
+.forms__container form label {
+    font-size: 14px;
+    padding: 10px;
+}
+
+
 .forms__container form button {
     padding: 10px 40px;
     margin-top: 20px;

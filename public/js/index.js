@@ -11,31 +11,59 @@ const login = async(event) => {
     let form = document.forms["login_form"];
     let dni = form.dni.value;
     let password = form.password.value;
-    const data = {
-        "dni": dni,
-        "password": password
-    };
-    const resp = await fetch(`${URL_BASE}/login`,{
-        method : "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)});
-    const log = await resp.json();
-    console.log(log.msg)
-    if(log.msg == ""){
-        console.log("todo gucci");
-        document.getElementById("alert_login").style.display = "none"
-        document.getElementById("alert_login").style.opacity = "0";
-        window.location.href = "/inicio"
-        
+    var isSelected = document.getElementById("is_programmer").checked;
+    var log;
+    if(isSelected){
+        const data = {
+            "username": dni,
+            "password": password
+        };
+        const resp = await fetch(`${URL_BASE}/loginpro`,{
+            method : "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)});
+        log = await resp.json();
+        if(log.msg == ""){
+            document.getElementById("alert_login").style.display = "none"
+            document.getElementById("alert_login").style.opacity = "0";
+            window.location.href = "/programador"
+            
+        }
+        else{
+            document.getElementById("alert_login").innerHTML = log.msg;
+            document.getElementById("alert_login").style.display = "block"
+            document.getElementById("alert_login").style.opacity = "1";
+        }
+    }else{
+        const data = {
+            "dni": dni,
+            "password": password
+        };
+        const resp = await fetch(`${URL_BASE}/login`,{
+            method : "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)});
+        log = await resp.json();
+        if(log.msg == ""){
+            document.getElementById("alert_login").style.display = "none"
+            document.getElementById("alert_login").style.opacity = "0";
+            window.location.href = "/inicio"
+            
+        }
+        else{
+            document.getElementById("alert_login").innerHTML = log.msg;
+            document.getElementById("alert_login").style.display = "block"
+            document.getElementById("alert_login").style.opacity = "1";
+        }
     }
-    else{
-        document.getElementById("alert_login").innerHTML = log.msg;
-        document.getElementById("alert_login").style.display = "block"
-        document.getElementById("alert_login").style.opacity = "1";
-    }
+    
+    
     
 }
 
@@ -105,6 +133,26 @@ const switch_login = () => {
     form.repassword.value="";
     form.verification.value="";
 }
+
+const programer_manager = () => {
+    var isSelected = document.getElementById("is_programmer").checked;
+    let form = document.forms["login_form"];
+    let dni = form.dni;
+    
+    if(isSelected){
+        dni.placeholder ="Usuario"
+        dni.setAttribute('oninput','');
+        dni.setAttribute('type','text');
+    }
+    else{
+        dni.placeholder ="DNI";
+        dni.setAttribute('oninput','javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);');
+        dni.setAttribute('type','number');
+    }
+
+}
+
+
 document.getElementById("register").addEventListener("click", register);
 document.getElementById("login").addEventListener("click", login);
 
@@ -115,3 +163,5 @@ document.getElementById("alert_login").style.display = "none"
 document.getElementById("alert_login").style.opacity = "0";
 document.getElementById("alert_register").style.display = "none"
 document.getElementById("alert_register").style.opacity = "0";
+
+document.getElementById("is_programmer").addEventListener("click", programer_manager);

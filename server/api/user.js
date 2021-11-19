@@ -50,6 +50,8 @@ const userApi = {
         if(objRes.msg==""){
             req.session.isAuth = true;
             req.session.userId = dni;
+            req.session.isProgrammer = false;
+            req.session.isClient = true;
         }
         res.json(objRes);
         
@@ -126,6 +128,52 @@ const userApi = {
             data : user,
             msg : ""
         })
+    },
+    loginProgramador : async(req, res) => {
+        let { username, password} = req.body;
+        let objRes;
+        if(username.length==0 || password.length==0){
+            objRes = {
+                msg : "Debes llenar todos los campos"
+            }
+        }
+        else{
+            const results = await pool.query(`SELECT * FROM Programador WHERE username=$1`, [username]);
+            if(results.rows.length > 0){
+                const user = results.rows[0];
+                if(password == user.password){
+                    objRes = {
+                        msg : ""
+                    }
+                }
+                else {
+                    objRes = {
+                        msg : "Contraseña es incorrecta"
+                    }
+                }
+            }
+            else{
+                objRes = {
+                    msg : "Usuario no registrado"
+                }
+            }
+        }
+        if(objRes.msg==""){
+            req.session.isAuth = true;
+            req.session.userId = username;
+            req.session.isProgrammer = true;
+            req.session.isClient = false;
+            
+        }
+        res.json(objRes);
+    },
+    endSession: async(req,res) => {
+        req.session.isAuth = false;
+        req.session.isClient = false;
+        req.session.isProgrammer = false;
+        res.json({
+            msg : ""
+        });
     }
         
 }

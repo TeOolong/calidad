@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programado</title>
+    <link rel="stylesheet" href="/css/programador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <%- include("layouts/navbar") %>  
+
+    <div class="box" style="margin-top: 20px">
+        <div class="box__col">
+            <div class="box__container">
+                <h3>Nueva cita</h3>
+                    <div class="data">
+                        <h4>DNI de usuario</h4>
+                        <input type="text" id="dni_insert">
+                    </div>
+                    <div class="box__container">
+                        <h3>Datos a insertar</h3>
+                        <div class="data">
+                            <h4>Nueva fecha</h4>
+                            <input type="date" id="fecha_insert">
+                        </div>
+                        <div class="data">
+                            <h4>Nueva ubicación</h4>
+                            <select id="ubicacion_insert">
+                                <option value="0">-- Ingresar Clinica --</option>
+                            </select>
+                        </div>
+                        <div class="data">
+                            <h4>Nueva vacuna</h4>
+                            <select id="vacuna_insert">
+                                <option value="0">-- Ingresar Vacuna --</option>
+                            </select>
+                        </div>
+                        <div class="data">
+                            <button id="insertar">Insertar</button>
+                        </div>
+                        <div id="alert_insert" class="alert alert-danger" role="alert"></div>
+                        
+                        
+                    </div>
+            </div>
+            
+            
+        </div>
+        <div class="box__col">
+            <div class="box__container">
+                <h3>Modificar cita</h3>
+                    <div class="data">
+                        <h4>DNI de usuario</h4>
+                        <input type="text" id="dni_update">
+                    </div>
+                    <div class="box__container">
+                        <h3>Datos a modificar</h3>
+                        <div class="data">
+                            <h4>Nueva fecha</h4>
+                            <input type="date" id="fecha_update">
+                        </div>
+                        <div class="data">
+                            <h4>Nueva ubicación</h4>
+                            <select id="ubicacion_update">
+                                <option value="0">-- Ingresar Clinica --</option>
+                            </select>
+                        </div>
+                        <div class="data">
+                            <h4>Nueva vacuna</h4>
+                            <select id="vacuna_update">
+                                <option value="0">-- Ingresar Vacuna --</option>
+                            </select>
+                        </div>
+                        <div class="data">
+                            <button id="actualizar">Actualizar</button>
+                        </div>
+                        <div id="alert_update" class="alert alert-danger" role="alert"></div>
+                        
+                        
+                    </div>
+            </div>
+            
+            
+        </div>
+        
+  
+  
+    </div>
+    <script src="/js/data/Programador.js"></script>
+      <script src="/js/controllers/ProgramadorManager.js"></script>
+    <script src="/js/data/CentroVacunacion.js"></script>
+      <script src="/js/controllers/CentroVacunacionManager.js"></script>
+      <script src="/js/data/Cita.js"></script>
+      <script src="/js/controllers/CitaManager.js"></script>
+    <script src="/js/data/Vacuna.js"></script>
+      <script src="/js/controllers/VacunaManager.js"></script>
+    <script src="/js/programador.js"></script>
+    <%- include("layouts/footer") %>
+</body>
+
+</html>

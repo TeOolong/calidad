@@ -28,7 +28,9 @@
               <input type="number" name="dni" maxlength="8"
               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="DNI">
               <input type="password" name="password" placeholder="Contraseña">
+              <label><input id="is_programmer" type="checkbox" style="width: auto;">   Es programador?</label><br>
               <button id="login">Ingresar</button>
+              
               <div id="alert_login" class="alert alert-danger" role="alert"></div>
             </form>
 
