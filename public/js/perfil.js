@@ -66,7 +66,12 @@ const mostrarUsuario = async() => {
     var edad = document.createElement('p');
     edad.innerHTML = `${calcularAños(new Date(user.nacimiento))} años`;
     var dosis = document.createElement('p');
-    dosis.innerHTML = user.dosis;
+    if(user.dosis=='0'){
+        dosis.innerHTML =  'Primera dosis'
+    }
+    else{
+        dosis.innerHTML = 'Segunda dosis'
+    } 
     var direccion = document.createElement('p');
     direccion.innerHTML = user.direccion;
     //Combinación de componentes con datos

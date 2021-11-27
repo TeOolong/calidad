@@ -121,8 +121,17 @@ const userApi = {
         res.json(objRes);
     },
 
-    getUser : async(req, res) => {
+    getUserInSession : async(req, res) => {
         const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [req.session.userId]);
+        const user = results.rows[0];
+        res.json({
+            data : user,
+            msg : ""
+        })
+    },
+    getUser : async(req, res) => {
+        let { dni} = req.body;
+        const results = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`, [dni]);
         const user = results.rows[0];
         res.json({
             data : user,
@@ -174,6 +183,31 @@ const userApi = {
         res.json({
             msg : ""
         });
+    },
+    actualizarDosisVacuna : async(req,res) => {
+        let { dni, dosis } = req.body;
+        if(dni.length == 0){
+            res.json({
+                msg : "Cliente no existe"
+            })
+        }else {
+            const doExist = await pool.query(`SELECT * FROM Cliente WHERE ID_Cliente =$1`,[dni]);
+            if (!(doExist.rows.length > 0)){
+                res.json({
+                    msg : "Cliente no existe"
+                })
+            }else{
+                var query = `UPDATE Cliente SET Dosis='${dosis}' WHERE ID_Cliente=${dni}`
+                console.log(query)
+                await pool.query(query);
+                res.json({
+                    msg : ""
+                })
+            }
+            
+        }
+        
+        
     }
         
 }

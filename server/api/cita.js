@@ -96,11 +96,11 @@ const citaApi = {
                     parseCentro =ubicacion;
                 }
                 if(fecha!=""){
-                    parseFecha = fecha;
+                    parseFecha = `'${fecha}'`;
                 }
     
     
-                var query = `UPDATE CitaVacuna SET Fecha_vacunacion='${parseFecha}', CentroCita=${parseCentro}, VacunaCita=${parseVacuna} WHERE ClienteCita=${dni}`
+                var query = `UPDATE CitaVacuna SET Fecha_vacunacion=${parseFecha}, CentroCita=${parseCentro}, VacunaCita=${parseVacuna} WHERE ClienteCita=${dni}`
                 console.log(query)
                 await pool.query(query);
                 res.json({

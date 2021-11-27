@@ -76,6 +76,24 @@ const actualizarCita = async() => {
     }
 }
 
+const actualizarDosis = async() => {
+    var dni = document.getElementById("dni_dosis").value;
+    var dosis = document.getElementById("select_dosis").value;
+
+    var data = await PM.actualizarDosis(dni, dosis)
+    if(data == ""){
+        console.log("todo gucci");
+        document.getElementById("alert_dosis").style.display = "none"
+        document.getElementById("alert_dosis").style.opacity = "0";
+        
+    }
+    else{
+        document.getElementById("alert_dosis").innerHTML = data;
+        document.getElementById("alert_dosis").style.display = "block"
+        document.getElementById("alert_dosis").style.opacity = "1";
+    }
+}
+
 
 
 const main = () => {
@@ -83,10 +101,13 @@ const main = () => {
     cargarVacunas();
     document.getElementById("insertar").onclick = insertarCita;
     document.getElementById("actualizar").onclick = actualizarCita;
+    document.getElementById("actualizar_dosis").onclick = actualizarDosis;
     document.getElementById("alert_insert").style.display = "none"
     document.getElementById("alert_insert").style.opacity = "0";
     document.getElementById("alert_update").style.display = "none"
     document.getElementById("alert_update").style.opacity = "0";
+    document.getElementById("alert_dosis").style.display = "none"
+    document.getElementById("alert_dosis").style.opacity = "0";
 }
 
 window.onload = main;

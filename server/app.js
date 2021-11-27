@@ -25,6 +25,7 @@ const vacunaApi = require('./api/vacuna');
 const centroApi = require('./api/centro');
 const citaApi = require('./api/cita');
 const historialApi = require('./api/historial');
+const forumApi = require('./api/forum');
 //
 
 app.use(
@@ -66,7 +67,9 @@ app.get('/news', newApi.getAllNews);
 app.get('/medicos', medicoApi.getAllMedicos);
 app.post('/medico', medicoApi.getMedico);
 app.get('/comentarios', comentApi.getAllComents);
-app.get('/user', userApi.getUser)
+app.get('/actualuser', userApi.getUserInSession)
+app.post('/user', userApi.getUser)
+app.post('/dosis', userApi.actualizarDosisVacuna)
 app.get('/vacunas', vacunaApi.getAllVacunas)
 app.post('/vacuna', vacunaApi.getVacuna)
 app.get('/centros', centroApi.getAllCentros)
@@ -77,6 +80,8 @@ app.post('/insert', citaApi.insertCita)
 app.post('/update', citaApi.updateCita)
 app.post('/historial', historialApi.getHistorialByUser)
 app.post('/newhistorial', historialApi.insertHistorial)
+app.get('/forum', forumApi.getAllPosts)
+app.post('/post', forumApi.insertPost)
 
 //
 
@@ -98,6 +103,16 @@ app.get('/perfil' ,(req, res) => {
     }
     
 });
+
+app.get('/foro', (req, res) => {
+    if(req.session.isAuth && req.session.isClient){
+        res.render('foro');
+    }
+    else {
+        res.redirect('/');
+    }
+    
+})
 
 app.get('/programador' ,(req, res) => {
     if(req.session.isAuth && req.session.isProgrammer){
