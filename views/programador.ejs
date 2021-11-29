@@ -19,7 +19,7 @@
                 <h3>Nueva cita</h3>
                     <div class="data">
                         <h4>DNI de usuario</h4>
-                        <input type="text" id="dni_insert">
+                        <input  maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" id="dni_insert">
                     </div>
                     <div class="box__container">
                         <h3>Datos a insertar</h3>
@@ -55,7 +55,7 @@
                 <h3>Modificar cita</h3>
                     <div class="data">
                         <h4>DNI de usuario</h4>
-                        <input type="text" id="dni_update">
+                        <input  maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" id="dni_update">
                     </div>
                     <div class="box__container">
                         <h3>Datos a modificar</h3>
@@ -96,7 +96,7 @@
             <h3>Actualizar dosis de usuario</h3>
             <div class="data">
                 <h4>DNI de usuario</h4>
-                <input type="text" id="dni_dosis">
+                <input  maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" id="dni_dosis">
                     
             </div>
             <div class="box__container">

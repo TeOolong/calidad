@@ -6,9 +6,7 @@ const cargarPublicaciones = async() => {
     var subforum = document.querySelector(".subforum");
    while( subforum.firstChild  ){
     subforum.removeChild( subforum.firstChild );
-      }
-    const publicaciones = await FM.obtenerPosts();
-    
+      }   
     var subforum_title = document.createElement('div');  
     subforum_title.setAttribute('class', 'subforum__title');
     var title = document.createElement('h1');  
@@ -23,12 +21,22 @@ const cargarPublicaciones = async() => {
     button.id = "publicar"
     button.innerHTML = "Publicar"
     button.onclick = publicarEnForum;
+    var alert_log = document.createElement('div'); 
+    alert_log.id="gestion_error";
+    alert_log.setAttribute('class', 'alert alert-danger');
+    alert_log.setAttribute('role', 'alert');
+    alert_log.style.display = "none";
+    alert_log.style.opacity = "0";
 
     subforum_textspace.appendChild(text_area)
     subforum_textspace.appendChild(button)
+    subforum_textspace.appendChild(alert_log)
 
     subforum.appendChild(subforum_title)
     subforum.appendChild(subforum_textspace)
+    
+    var publicaciones = await FM.obtenerPosts();
+    publicaciones = publicaciones.reverse()
 
     for(publicacion of publicaciones) {
         //obtencion de datos de usuario
@@ -72,13 +80,21 @@ const publicarEnForum = async() => {
     var data = await FM.insertarPost(user.dni, publicacion)
     if(data == ""){
         console.log("todo gucci");
+        document.getElementById("gestion_error").style.display = "none";
+        document.getElementById("gestion_error").style.opacity = "0";
+        cargarPublicaciones();
+    }else {
+        document.getElementById("gestion_error").innerHTML = data;
+        document.getElementById("gestion_error").style.display = "block";
+        document.getElementById("gestion_error").style.opacity = "1";
     }
-    cargarPublicaciones();
+    
 }
 
 
 const main = () => {
     cargarPublicaciones();
+
     
 }
 
