@@ -70,10 +70,9 @@ const userApi = {
         }
         else {
             if(dni.length ==8) {
-                const backData = await fetch(`https://apiperu.dev/api/dni/${dni}`,{
+                const backData = await fetch(`https://apiperu.dev/api/dni/${dni}?api_token=15a344180d5a35e47f836e7d1d6bdab47a9103a8810d7af549b8bc74feabff81`,{
                 method : 'GET',
                 headers: {
-                    'Authorization': 'Bearer ce7a7d75d349276aa88481ea03867c2d3da2efade5d68fa09290bc6ed4000769',
                     'Content-Type': 'application/json'
                     }
                 });
@@ -92,13 +91,7 @@ const userApi = {
                         }
                     }
                     else {
-                        if(verification!=data.data.codigo_verificacion) {
-                            objRes = {
-                                msg : "Codigo de verificación invalido"
-                            }
-                        }
-                        else {
-                            let hashedPassword = await bcrypt.hash(password, 10);
+                        let hashedPassword = await bcrypt.hash(password, 10);
                             const doExist = await pool.query(`SELECT * FROM Cliente WHERE DNICli =$1`,[dni]);
                             if (doExist.rows.length > 0) {
                                 objRes = {
@@ -109,13 +102,12 @@ const userApi = {
                                 pool.query(
                                     `INSERT INTO Cliente (ID_Cliente, NombreCli, ApePCli,ApeMCli, DNICli, contraseñaCLI, Direccion, FechaNacCli, CdoVrfCli, Dosis) 
                                     VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10)`, 
-                                    [dni,data.data.nombres,data.data.apellido_paterno, data.data.apellido_materno, dni,hashedPassword,data.data.direccion_completa,dateRef.toISOString().slice(0, 10),verification, 0 ]); 
+                                    [dni,data.data.nombres,data.data.apellido_paterno, data.data.apellido_materno, dni,hashedPassword,"Jiron Jose Nicolás Rodrigo 166",dateRef.toISOString().slice(0, 10),verification, 0 ]); 
                                     
                                 objRes = {
                                     msg : ""
                                 } 
                             }
-                        } 
                     }
                 }
             }
